@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Enter";
+}
+
+<h2>Enter</h2>
+
+<div class="navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">御膳遞</a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("回首頁", "Index", "Home")</li>
+                <li>@Html.ActionLink("註冊", "Create", "Register")</li>
+                <li>@Html.ActionLink("登入", "Enter", "Sigin")</li>
+                <li>@Html.ActionLink("購物車", "Buy", "ShopingCar")</li>
+                <li>@Html.ActionLink("關於我們", "About", "About")</li>
+            </ul>
+        </div>
+    </div>
+
+</div>

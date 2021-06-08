@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Yusandy.Models.Kind>
+
+@{
+    ViewBag.Title = "御膳遞";
+}
+
+<h2>各式珍饈</h2>
+
+<div class="navbar-inverse navbar-fixed-top" >
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#"class="navbar-brand">御膳遞</a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("註冊","Create", "Register")</li>
+                <li>@Html.ActionLink("登入", "Enter", "Sigin")</li>
+                <li>@Html.ActionLink("商品購買", "Buy", "ShopingCar")</li>
+                <li>@Html.ActionLink("關於我們", "About", "About")</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="column">
+    @foreach(var item in Model)
+            {
+                string imgName = item.Id + ".jpg";
+                <div class="col-12 col-md-4" style="margin-top:10px;">
+                    <div class="img-thumbnail">
+                        <img src="~/Images/@imgName" class="img-responsive" />
+                        <h4>@item.Name</h4>
+
+                    </div>
+
+                </div>
+
+            }
+
+</div>
+

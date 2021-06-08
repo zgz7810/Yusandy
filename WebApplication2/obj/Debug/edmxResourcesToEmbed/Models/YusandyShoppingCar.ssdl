@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YusandySoppingCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'YusandySoppingCar.dbo.ChineseFoodCarrige' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="ChineseFoodCarrige">
+    <Key>
+      <PropertyRef Name="cfId" />
+    </Key>
+    <Property Name="cfId" Type="int" Nullable="false" />
+    <Property Name="cfPID" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfName" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfPrice" Type="int" />
+    <Property Name="cfKind" Type="nvarchar" MaxLength="50" />
+    <Property Name="cfImg" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Pwd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'YusandySoppingCar.dbo.Order' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OId" />
+      <PropertyRef Name="ODate" />
+    </Key>
+    <Property Name="OId" Type="int" Nullable="false" />
+    <Property Name="OOrderGuid" Type="nvarchar" MaxLength="50" />
+    <Property Name="OUserId" Type="nvarchar" MaxLength="50" />
+    <Property Name="OReceive" Type="nvarchar" MaxLength="50" />
+    <Property Name="OEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="OAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="ODate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--產生期間發現錯誤:
+警告 6013: 資料表/檢視 'YusandySoppingCar.dbo.OrderDetail' 未定義主索引鍵，也無法推斷有效的主索引鍵。此資料表/檢視已被排除。如果要使用此實體，您必須檢閱您的結構描述，加入正確的索引鍵，並將它取消註解。
+        <EntityType Name="OrderDetail">
+          <Property Name="OdfId" Type="int" />
+          <Property Name="OdOrderGuid" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdUserId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdPId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdPrice" Type="int" />
+          <Property Name="OdQty" Type="int" />
+          <Property Name="OdIsApproved" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityContainer Name="YusandySoppingCarModelStoreContainer">
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChineseFoodCarrige" EntityType="Self.ChineseFoodCarrige" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ChineseFoodCarrige].[cfId] AS [cfId], 
+    [ChineseFoodCarrige].[cfPID] AS [cfPID], 
+    [ChineseFoodCarrige].[cfName] AS [cfName], 
+    [ChineseFoodCarrige].[cfPrice] AS [cfPrice], 
+    [ChineseFoodCarrige].[cfKind] AS [cfKind], 
+    [ChineseFoodCarrige].[cfImg] AS [cfImg]
+    FROM [dbo].[ChineseFoodCarrige] AS [ChineseFoodCarrige]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Order" EntityType="Self.Order" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Order].[OId] AS [OId], 
+    [Order].[OOrderGuid] AS [OOrderGuid], 
+    [Order].[OUserId] AS [OUserId], 
+    [Order].[OReceive] AS [OReceive], 
+    [Order].[OEmail] AS [OEmail], 
+    [Order].[OAddress] AS [OAddress], 
+    [Order].[ODate] AS [ODate]
+    FROM [dbo].[Order] AS [Order]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

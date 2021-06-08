@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YusandySoppingCarModelStoreContainer" CdmEntityContainer="YusandySoppingCarEntities">
+    <EntitySetMapping Name="Member">
+      <EntityTypeMapping TypeName="YusandySoppingCarModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Pwd" ColumnName="Pwd" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChineseFoodCarrige">
+      <EntityTypeMapping TypeName="YusandySoppingCarModel.ChineseFoodCarrige">
+        <MappingFragment StoreEntitySet="ChineseFoodCarrige">
+          <ScalarProperty Name="cfId" ColumnName="cfId" />
+          <ScalarProperty Name="cfPID" ColumnName="cfPID" />
+          <ScalarProperty Name="cfName" ColumnName="cfName" />
+          <ScalarProperty Name="cfPrice" ColumnName="cfPrice" />
+          <ScalarProperty Name="cfKind" ColumnName="cfKind" />
+          <ScalarProperty Name="cfImg" ColumnName="cfImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="YusandySoppingCarModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="OId" ColumnName="OId" />
+          <ScalarProperty Name="OOrderGuid" ColumnName="OOrderGuid" />
+          <ScalarProperty Name="OUserId" ColumnName="OUserId" />
+          <ScalarProperty Name="OReceive" ColumnName="OReceive" />
+          <ScalarProperty Name="OEmail" ColumnName="OEmail" />
+          <ScalarProperty Name="OAddress" ColumnName="OAddress" />
+          <ScalarProperty Name="ODate" ColumnName="ODate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

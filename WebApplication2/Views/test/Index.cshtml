@@ -1,0 +1,13 @@
+﻿@model IEnumerable<YusandyCarrige.Models.Product>
+@{
+   ViewBag.Title ="中式料理";
+}
+
+<h2>中式料理</h2>
+
+<div class="row">
+    @foreach(var item in Model)
+            {
+                @Html.Partial("test",item)
+            }
+</div>

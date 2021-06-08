@@ -1,0 +1,54 @@
+﻿@model IEnumerable<YusandyShoppingCar.Models.ChineseFoodCarrige>
+@{
+    ViewBag.Title = "選購商品";
+}
+
+<h2>選購商品</h2>
+
+<div class="navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">御膳遞</a>
+        </div>
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("註冊", "Create", "Register")</li>
+                <li>@Html.ActionLink("登入", "Enter", "Sigin")</li>
+                <li>@Html.ActionLink("商品購買", "Buy", "ShopingCar")</li>
+                <li>@Html.ActionLink("關於我們", "About", "About")</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+@Html.DropDownList("Items", @ViewBag.Items as List<SelectListItem>, "請選擇商品", new { @class = "form - control" })
+
+
+<div class="row" style="margin-top:20px;">
+    @foreach(var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img scr="~/images/@item.Img" style="width:200px;height:270px">
+                        <div class="caption">
+                            <h4>@item.Img</h4>
+                            <p>單價:@item.Price</p>
+                            <p><a href="@Url.Action("AddCar","Member")?PId=@item.PId" class="btn btn-primary">料理包</a></p>
+                            <p><a href="@Url.Action("AddCar","Member")?PId=@item.PId" class="btn btn-primary">DIY配料包</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+</div>
